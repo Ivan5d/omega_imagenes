@@ -2,6 +2,6 @@ streamlit==1.49.1
 pillow
 torch
 torchvision
-transformers==4.48.0
+transformers
 kornia
 timm

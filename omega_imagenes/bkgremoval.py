@@ -7,8 +7,7 @@ from transformers import AutoModelForImageSegmentation
 # Model setup (load once)
 model = AutoModelForImageSegmentation.from_pretrained('briaai/RMBG-2.0', trust_remote_code=True)
 torch.set_float32_matmul_precision(['high', 'highest'][0])
-#model.to('cuda')
-model.to('cpu')
+model.to('cuda')
 model.eval()
 
 # Data settings
@@ -31,8 +30,7 @@ def remove_background(input_image_path):
         image = Image.open(input_image_path).convert('RGB')
         
         # Preprocess the image
-        #input_images = transform_image(image).unsqueeze(0).to('cuda')
-        input_images = transform_image(image).unsqueeze(0).to('cpu')
+        input_images = transform_image(image).unsqueeze(0).to('cuda')
 
         # Prediction
         with torch.no_grad():

@@ -1,8 +1,4 @@
 import streamlit as st
-from huggingface_hub import login
-hf_token = st.secrets["HF_TOKEN"]
-login(token=hf_token)
-
 
 st.set_page_config(
     page_title="Herramientas de Diseño de Omega",
