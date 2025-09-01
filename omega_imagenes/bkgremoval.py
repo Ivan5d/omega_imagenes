@@ -7,7 +7,8 @@ from transformers import AutoModelForImageSegmentation
 # Model setup (load once)
 model = AutoModelForImageSegmentation.from_pretrained('briaai/RMBG-2.0', trust_remote_code=True)
 torch.set_float32_matmul_precision(['high', 'highest'][0])
-model.to('cuda')
+#model.to('cuda')
+model.to('cpu')
 model.eval()
 
 # Data settings
