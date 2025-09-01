@@ -1,0 +1,6 @@
+streamlit>=1.22
+pillow
+torch
+torchvision
+transformers
+kornia
