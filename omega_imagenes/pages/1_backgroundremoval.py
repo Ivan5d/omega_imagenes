@@ -17,7 +17,7 @@ uploaded_file = st.file_uploader("Selecciona una imagen", type=["png", "jpg", "j
 
 if uploaded_file:
     image = Image.open(uploaded_file)
-    st.image(image, caption="Imagen original", use_container_width=True)
+    st.image(image, caption="Imagen original", width=True)
 
     st.info("Aquí aparecerá la imagen sin fondo después del procesamiento.")
 
@@ -52,7 +52,7 @@ if uploaded_file:
 
         # Show and download background-removed image
         if eliminarfondo and removed_image is not None:
-            st.image(removed_image, caption="Imagen sin fondo", use_container_width=True)
+            st.image(removed_image, caption="Imagen sin fondo", width=True)
             with tempfile.NamedTemporaryFile(suffix=".png", delete=False) as out_tmp:
                 removed_image.save(out_tmp.name)
                 with open(out_tmp.name, "rb") as file:
@@ -67,7 +67,7 @@ if uploaded_file:
         # Show and download watermark only (no background removal)
         if marcadeagua:
             watermarked_image = watermark(image, alpha_value=alpha_value)
-            st.image(watermarked_image, caption="Imagen con Marca de Agua", use_container_width=True)
+            st.image(watermarked_image, caption="Imagen con Marca de Agua", width=True)
             with tempfile.NamedTemporaryFile(suffix=".png", delete=False) as wm_tmp:
                 watermarked_image.save(wm_tmp.name)
                 with open(wm_tmp.name, "rb") as file:
@@ -82,7 +82,7 @@ if uploaded_file:
         # Show and download background-removed + watermark
         if ambos and removed_image is not None:
             watermarked_image = watermark(removed_image, alpha_value=alpha_value)
-            st.image(watermarked_image, caption="Imagen sin fondo y con Marca de Agua", use_container_width=True)
+            st.image(watermarked_image, caption="Imagen sin fondo y con Marca de Agua", width=True)
             with tempfile.NamedTemporaryFile(suffix=".png", delete=False) as wm_tmp:
                 watermarked_image.save(wm_tmp.name)
                 with open(wm_tmp.name, "rb") as file:

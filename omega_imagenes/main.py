@@ -6,7 +6,7 @@ login(token=hf_token)
 
 st.set_page_config(
     page_title="Herramientas de Diseño de Omega",
-    page_icon="assets/favicon_omega.png",
+    page_icon="/assets/favicon_omega.png",
 )
 
 st.write("## Bienvenido a las herramientas de diseño de Omega.")
